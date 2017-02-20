@@ -32,10 +32,52 @@ router.get('/:id',function(req, res)
 });
 
 // Consulta de vuelos que sean de una fecha X o más reciente
+router.get('/fecha', function(req, res) 
+{
+    var fecha = req.fechaYHoraDeSalida;
+    Vuelo.find({fechaYHoraDeSalida: {$gte: fecha}}, 
+    function(err, vuelo)
+    {
+        if (err)
+            res.status(500).send('Error al leer de la base de datos');
+        else
+            res.status(200).json(vuelo);
+    });
+});
 
 // Consulta de vuelos que estén entre dos fechas de salida (desde – hasta)
+router.get('/fecha', function(req, res) 
+{
+    var fechaDesde = req.fechaDesde;
+    var fechaHasta = req.fechaHasta;
+
+    Vuelo.find({fechaYHoraDeSalida: {$gte: fechaDesde}, 
+                fechaYHoraDeSalida: {$lte: fechaHasta}}, 
+    function(err, vuelo)
+    {
+        if (err)
+            res.status(500).send('Error al leer de la base de datos');
+        else
+            res.status(200).json(vuelo);
+    });
+});
 
 // Consulta de vuelos que estén entre dos fechas de llegada (desde – hasta)
+router.get('/fecha', function(req, res) 
+{
+    var fechaHasta = req.fechaHasta;
+    var fechaHasta = req.fechaHasta;
+
+    Vuelo.find({fechaTHoraDeLlegada: {$gte: fechaDesde}, 
+                fechaTHoraDeLlegada: {$lte: fechaHasta}},
+    function(err, vuelo)
+    {
+        if (err)
+            res.status(500).send('Error al leer de la base de datos');
+        else
+            res.status(200).json(vuelo);
+    });
+});
 
 // Crear un nuevo vuelo
 router.post('/', function(req, res)

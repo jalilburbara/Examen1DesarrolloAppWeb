@@ -12,9 +12,9 @@ router.get('/:aerolina', function(req, res)
 	function RespuestaDeDescarga(err)
 	{
 		if (err)
-        	console.log('Ocurrio un error en la descarga.');
+        	res.status(500).send('Ocurrio un error en la descarga.');
     	else
-	        console.log('Descarga exitosa.');
+	        res.status(200).send('Descarga exitosa.');
 	});
 });
 
