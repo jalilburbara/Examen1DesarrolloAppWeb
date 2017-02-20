@@ -10,6 +10,7 @@ var bodyParser     = require('body-parser');
 var path     	   = require('path');
 var methodOverride = require('method-override');
 var logger 		   = require('morgan');
+var apiVuelos      = require('./app/routes/apiVuelos');
 var vuelos         = require('./app/routes/vuelos');
 var inicio         = require('./app/routes/inicio');
 var app            = express();
@@ -23,9 +24,9 @@ mongoose.connect(db.url, function (error) {
 
 var port = 3000;
 
-app.use('/api/vuelos', vuelos);
-
 app.use('/', inicio);
+app.use('/api/vuelos', apiVuelos);
+app.use('/vuelos', vuelos);
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
