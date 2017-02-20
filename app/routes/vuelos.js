@@ -38,6 +38,22 @@ router.get('/:id',function(req, res)
 // Consulta de vuelos que estén entre dos fechas de llegada (desde – hasta)
 
 // Crear un nuevo vuelo
+router.post('/', function(req, res)
+{
+    var vueloNuevo = new Vuelo({
+        aerolínea : req.aerolínea,
+        ciudadOrigen : req.ciudadOrigen,
+        ciudadDestino : req.ciudadDestino,
+        fechaYHoraDeSalida : req.fechaYHoraDeSalida,
+        fechaTHoraDeLlegada : req.fechaTHoraDeLlegada
+    });
+    vueloNuevo.save(function(error, vueloNuevo){
+        if (error) 
+            res.status(500).send('No se ha podido agregar.');
+        else 
+            res.status(200).json('Agregado exitosamente');
+    });
+});
 
 // Modificar un vuelo por ID
 router.put('/id', function(req, res)
@@ -55,7 +71,7 @@ router.put('/id', function(req, res)
                 vuelo.fechaYHoraDeSalida = req.body.fechaYHoraDeSalida
                 vuelo.fechaTHoraDeLlegada = req.body.fechaTHoraDeLlegada
 
-                vuelo.save(function(error, vuelo1)
+                vuelo.save(function(error, vueloNuevo)
                 {
                     if(error)
                         res.status(500).send('Error en la base de datos');
