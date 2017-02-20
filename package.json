@@ -1,0 +1,27 @@
+{
+  "name": "exam1devapps",
+  "version": "1.0.0",
+  "description": "Examen 1 control de vuelos",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jalilburbara/Examen1DesarrolloAppWeb.git"
+  },
+  "author": "Jalil Burbara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jalilburbara/Examen1DesarrolloAppWeb/issues"
+  },
+  "homepage": "https://github.com/jalilburbara/Examen1DesarrolloAppWeb#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.8.3",
+    "morgan": "^1.8.1"
+  }
+}
