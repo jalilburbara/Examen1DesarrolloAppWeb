@@ -84,12 +84,12 @@ router.post('/', function(req, res)
 {
     var vueloNuevo = new Vuelo(
         {
-            _id : req._id,
-            aerolínea : req.aerolínea,
-            ciudadOrigen : req.ciudadOrigen,
-            ciudadDestino : req.ciudadDestino,
-            fechaYHoraDeSalida : req.fechaYHoraDeSalida,
-            fechaTHoraDeLlegada : req.fechaTHoraDeLlegada
+            _id : req.body._id,
+            aerolínea : req.body.aerolínea,
+            ciudadOrigen : req.body.ciudadOrigen,
+            ciudadDestino : req.body.ciudadDestino,
+            fechaYHoraDeSalida : req.body.fechaYHoraDeSalida,
+            fechaTHoraDeLlegada : req.body.fechaTHoraDeLlegada
         });
     vueloNuevo.save(function(error, vueloNuevo)
     {
