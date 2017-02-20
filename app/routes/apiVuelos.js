@@ -84,6 +84,7 @@ router.post('/', function(req, res)
 {
     var vueloNuevo = new Vuelo(
         {
+            _id : req._id,
             aerolínea : req.aerolínea,
             ciudadOrigen : req.ciudadOrigen,
             ciudadDestino : req.ciudadDestino,
