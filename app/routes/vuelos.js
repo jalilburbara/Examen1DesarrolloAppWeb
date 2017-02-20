@@ -3,12 +3,12 @@ var path    = require('path');
 var router 	= express.Router();
 
 router.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, '..', '..', 'public', 'aerolinas.html'));
+	res.sendFile(path.join(__dirname, '..', '..', 'public', 'aerolineas.html'));
 });
 
-router.get('/:aerolina', function(req, res) 
+router.get('/:aerolinea', function(req, res) 
 {
-	res.download(path.join(__dirname, '..', '..', 'public', req.params.aerolina), req.params.aerolina, 
+	res.download(path.join(__dirname, '..', '..', 'public', req.params.aerolinea), req.params.aeroliena, 
 	function RespuestaDeDescarga(err)
 	{
 		if (err)
