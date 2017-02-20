@@ -9,7 +9,7 @@ router.get('/',function(req, res){
         if(err)
             res.status(500).send('Error en la base de datos');
         else
-            res.status(200).send(vuelos);
+            res.status(200).json(vuelos);
     });
 });
 
@@ -29,6 +29,5 @@ router.get('/:id',function(req, res){
 });
 
 // Consulta de vuelos que sean de una fecha X o más reciente
-
 
 module.exports = router;

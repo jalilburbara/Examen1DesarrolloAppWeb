@@ -1,5 +1,5 @@
 /*  
-npm install method-override morgan body-parser mongoose express --save
+npm install method-override morgan body-parser mongoose express nodemon --save
 -or- 
 npm install
 */
@@ -17,7 +17,7 @@ var app            = express();
 var db = require('./config/db');
 
 mongoose.connect(db.url, function (error) {
-    if (error) {console.error(error); console.log("jalil");}
+    if (error) console.error(error);
     else console.log('mongo connected');
 });
 
